@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import BackImage from "./../../Assets/you-belong.jpg";
+import BackImage from "./../Assets/you-belong.jpg";
 import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
-import {api} from "./../../Assets/api";
+import {api} from "./../Assets/api";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -59,7 +59,7 @@ function SignUp() {
                         />
                         <input
                             type="email"
-                            placeholder="Email"
+                            placeholder="E-mail"
                             value={signUpInfos.email}
                             onChange={(e) =>
                                 setSignUpInfos({ ...signUpInfos, email: e.target.value })
