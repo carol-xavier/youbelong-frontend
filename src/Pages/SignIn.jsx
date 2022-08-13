@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import BackImage from "./../Assets/you-belong.jpg";
+import BackImage from "./../Assets/images/you-belong.jpg";
 import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
-import { api } from "./../Assets/api";
+import { api } from "./../Assets/Api/api";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -11,6 +11,12 @@ function SignIn() {
   const [signInInfo, setSignInInfo] = React.useState({
     email: "",
     password: "",
+  });
+
+  React.useEffect(() => {
+    if(localStorage.getItem("token")){
+        navigate("/user-page");
+    }
   });
 
   const handleSignIn = (event) => {
@@ -23,7 +29,13 @@ function SignIn() {
         email,
         password,
       })
-      .then(() => navigate("/user-page"))
+      .then((response) => {
+        const {data} = response;
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("name", data.name);
+        localStorage.setItem("email", data.email);
+        navigate("/")
+      })
       .catch(() => {
         setIsLoading(false);
         alert("Não foi possível criar a conta. Tente novamente!");
