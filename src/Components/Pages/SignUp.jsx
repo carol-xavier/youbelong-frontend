@@ -1,10 +1,12 @@
+import React from "react";
 import styled from "styled-components";
 import BackImage from "./../../Assets/you-belong.jpg";
 import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
-import { api } from "./../assets/api";
+import {api} from "./../../Assets/api";
 
 function SignUp() {
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = React.useState(false);
     const [signUpInfos, setSignUpInfos] = React.useState({
         name: "",
@@ -14,7 +16,6 @@ function SignUp() {
     });
 
     const handleSignUp = (event) => {
-        const navigate = useNavigate();
         event.preventDefault();
         setIsLoading(true);
 
@@ -40,7 +41,7 @@ function SignUp() {
 
     return (
         <Container>
-            <img src={BackImage} />
+            <img src={BackImage} alt="Background" />
             <Content>
                 <div>
                     <p>WELCOME</p>
@@ -97,7 +98,7 @@ function SignUp() {
                             )}
                         </button>
                     </form>
-                    <Link to={"/"}>Já tem uma conta? Clique aqui!</Link>
+                    <Link to={"/sign-in"}>Já tem uma conta? Clique aqui!</Link>
                 </div>
                 <div>
                     <p> Todos os seres humanos são 99,9% geneticamente idênticos. Fazemos parte do todo, então trabalhemos pelos todo.
