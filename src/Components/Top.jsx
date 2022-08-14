@@ -61,7 +61,7 @@ const Container = styled.section`
     text-shadow: 0rem;
     position: relative;
 
-    h1{
+    & > h1{
         font-size: 2.2rem;
         position: absolute;
         bottom: 10%;
@@ -77,11 +77,11 @@ const Menu = styled.div`
     display: flex;
     justify-content: space-evenly;
 
-    div{
+    & > div{
         display: flex;
     }
 
-    button{
+    & > button{
         color: #FFFFFF;
         height: 2rem;
         border-radius: 0.2rem;

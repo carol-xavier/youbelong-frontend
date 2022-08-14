@@ -40,8 +40,10 @@ const Container = styled.article`
 `;
 
 const Content = styled.div`
+ //width: 90vw;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
 
 

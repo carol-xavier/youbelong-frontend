@@ -18,8 +18,8 @@ function App() {
                     <Route path="/sign-up" element={<SignUp />} />
                     <Route path="/user-page" element={<User />} />
                     <Route path="/sign-in" element={<SignIn />} />
-                    {/* <Route path="/institution-registration" element={} />
-        <Route path="/insitution/:institutionId" element={} /> */}
+                    <Route path="/institution/:institutionId" element={<SignUp />} />
+                    {/* <Route path="/institution-registration" element={} />*/}
                 </Routes>
             </BrowserRouter>
         // </UserContext.Provider>

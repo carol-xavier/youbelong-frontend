@@ -66,12 +66,12 @@ function SearchMenu({ setInstitutions }) {
 export default SearchMenu;
 
 const Container = styled.section`
-    width: 80%;
+    width: 70%;
     background-color: #D9D9D9;
     border-radius: 0.5rem;
-    padding: 5%;
+    padding: 2rem;
 
-    section{
+    & > section{
         margin-bottom: 2%;
         display: flex;
         justify-content: space-evenly;
@@ -79,7 +79,7 @@ const Container = styled.section`
 `
 const Box = styled.div`
     background-color: #CAC1C1;
-    width: 5.4rem;
+    width: 6.4rem;
     border-radius: 0.5rem;
 
     display: flex;
@@ -87,7 +87,9 @@ const Box = styled.div`
     align-items: center;
     text-align: center;
 
-    h2{
+    & > h2{
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
         color: #5B5858;
     }
 `

@@ -96,7 +96,7 @@ const Container = styled.section`
   height: 100vh;
   position: relative;
 
-  img {
+  & > img {
     width: 100%;
     height: 100%;
     z-index: 0;
@@ -118,13 +118,13 @@ const Content = styled.div`
     flex-direction: column;
     align-items: center;
 
-    p{
+    & > p{
       font-size: 1.5rem;
       color: rgba(1, 41, 44, 1);
       text-shadow: 0 4px 4px 0 #000000;
     }
 
-    div{
+    & > div{
       position: absolute;
       bottom: 10%;
       padding: 5%;

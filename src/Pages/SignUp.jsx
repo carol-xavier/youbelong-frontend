@@ -125,7 +125,7 @@ const Container = styled.section`
   height: 100vh;
   position: relative;
 
-  img {
+  & > img {
     width: 100%;
     height: 100%;
     z-index: 0;
@@ -146,7 +146,7 @@ const Content = styled.div`
     display: flex;
     justify-content: space-between;
 
-    div{
+    & > div{
         width: 50%;
     }
 `;
