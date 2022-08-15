@@ -1,5 +1,6 @@
-import React from "react";
+import { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
+import DonorContext from "../Context/DonorContext";
 import BackImage from "./../Assets/images/you-belong.jpg";
 import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,17 +8,27 @@ import { api } from "./../Assets/Api/api";
 
 function SignIn() {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [signInInfo, setSignInInfo] = React.useState({
+  const { donorInstitutions, setDonorInstitutions } = useContext(DonorContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const [signInInfo, setSignInInfo] = useState({
     email: "",
     password: "",
   });
 
-  React.useEffect(() => {
-    if(localStorage.getItem("token")){
-        navigate("/user-page");
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      api
+        .get("/donor", config)
+        .then(({ data }) => setDonorInstitutions(data))
+        .catch(e => console.error(e));
+      navigate("/");
     }
-  });
+  }, [donorInstitutions]);
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -29,8 +40,8 @@ function SignIn() {
         email,
         password,
       })
-      .then((response) => {
-        const {data} = response;
+      .then(({ data }) => {
+        setDonorInstitutions(data.savedInstitutions);
         localStorage.setItem("token", data.token);
         localStorage.setItem("name", data.name);
         localStorage.setItem("email", data.email);
@@ -38,7 +49,7 @@ function SignIn() {
       })
       .catch(() => {
         setIsLoading(false);
-        alert("Não foi possível criar a conta. Tente novamente!");
+        alert("Não foi possível efetuar o login. Tente novamente!");
       });
   };
 
@@ -73,16 +84,16 @@ function SignIn() {
             {isLoading ? (
               <ThreeDots color="#FFFFFF" width="51px" height="13px" />
             ) : (
-              "Criar Conta"
+              "Entrar"
             )}
           </button>
         </Form>
         <div>
-        <Link to={"/sign-in"}>Já tem uma conta? Clique aqui!</Link>
-        <Link to={"/"}>
-          Acha que a sua instituição pode se beneficiar fazendo
-          parte da YouBelong? Descubra mais clicando aqui!
-        </Link>
+          <Link to={"/sign-in"}>Não tem uma comta? Clique aqui!</Link>
+          <Link to={"/"}>
+            Acha que a sua instituição pode se beneficiar fazendo
+            parte da YouBelong? Descubra mais clicando aqui!
+          </Link>
         </div>
       </Content>
     </Container>

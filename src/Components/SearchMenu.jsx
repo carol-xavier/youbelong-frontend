@@ -29,7 +29,7 @@ function SearchMenu({ setInstitutions }) {
             .catch((err) => console.log(err));
     }
 
-    function getInstitutionsByArticle(categoryId) { //FAZER NO BACK AINDA
+    function getInstitutionsByArticle(categoryId) { 
         api
             .get(
                 `/articles/${categoryId}`
@@ -70,9 +70,10 @@ const Container = styled.section`
     background-color: #D9D9D9;
     border-radius: 0.5rem;
     padding: 2rem;
+    margin-top: 15vh;
 
     & > section{
-        margin-bottom: 2%;
+        margin-bottom: 3vh;
         display: flex;
         justify-content: space-evenly;
     }

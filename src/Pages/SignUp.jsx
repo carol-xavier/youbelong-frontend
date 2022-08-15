@@ -1,14 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import BackImage from "./../Assets/images/you-belong.jpg";
 import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
-import {api} from "./../Assets/Api/api";
+import { api } from "./../Assets/Api/api";
 
 function SignUp() {
     const navigate = useNavigate();
-    const [isLoading, setIsLoading] = React.useState(false);
-    const [signUpInfos, setSignUpInfos] = React.useState({
+    const [isLoading, setIsLoading] = useState(false);
+    const [signUpInfos, setSignUpInfos] = useState({
         name: "",
         email: "",
         password: "",
