@@ -1,12 +1,12 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
-import DonorContext from "../Context/DonorContext";
+import { getContext } from "../Context/ContextAPI";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 
 function Top() {
     const navigate = useNavigate();
-    const { donorInstitutions, setDonorInstitutions } = useContext(DonorContext);
+    const { setDonorInstitutions } = getContext();
     const [status, setStatus] = useState(false);
 
     useEffect(() => {
@@ -27,9 +27,11 @@ function Top() {
         const host = window.location.host;
         const route = address.replace(host, "");
 
-        if(route !== "/") {
+        if (route === "http:///") {
+            window.location.reload();
+        } else {
             navigate("/");
-        } 
+        }
     }
 
     return (

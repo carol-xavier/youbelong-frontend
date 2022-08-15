@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import DonorContext from "../Context/DonorContext";
+import { getContext } from "../Context/ContextAPI";
 import { api } from "./../Assets/Api/api";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
-import { useEffect, useContext, useState } from "react";
+import { useState } from "react";
 
-function HeartButton({ id, heartsTable, setLoad }) {
-    const { donorInstitutions, setDonorInstitutions } = useContext(DonorContext);
+function HeartButton({ id, heartsTable }) {
+    const {setLoad} = getContext();
     const [heartStatus, setHeartStatus] = useState(false);
 
     function saveInstitution(institutionId) {

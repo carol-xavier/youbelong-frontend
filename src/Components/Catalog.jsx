@@ -1,17 +1,17 @@
-import { useState, useContext, useEffect } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
-import DonorContext from "../Context/DonorContext";
+import { getContext } from "../Context/ContextAPI";
 import { useNavigate } from "react-router-dom";
 import HeartButton from "./HeartButton";
 
-function Catalog({ institutions, setLoad }) {
+function Catalog({ institutions }) {
     const navigate = useNavigate();
-    const { donorInstitutions, setDonorInstitutions } = useContext(DonorContext);
+    const { donorInstitutions, load } = getContext();
     const heartsTable = {};
 
-    institutions.map((num) => heartsTable[num.id] = false);
+    institutions.forEach((num) => heartsTable[num.id] = false);
     if (donorInstitutions) {
-        donorInstitutions.map((obj, index) => {
+        donorInstitutions.forEach((obj) => {
             const { id } = obj;
             if (heartsTable[id] === false) heartsTable[id] = true;
         });
@@ -22,10 +22,10 @@ function Catalog({ institutions, setLoad }) {
             const { id, name, picture } = obj;
 
             return <Box key={index} >
-                <div><HeartButton 
-                    id={id} 
-                    heartsTable={heartsTable} 
-                    setLoad={setLoad}/>
+                <div><HeartButton
+                    id={id}
+                    heartsTable={heartsTable}
+                />
                 </div>
                 <img src={picture} alt="Foto da instituição" onClick={() => navigate(`/institution/${id}`)} />
                 <p onClick={() => navigate(`/institution/${id}`)}>{name}</p>

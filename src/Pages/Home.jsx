@@ -1,15 +1,18 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import { api } from "../Assets/Api/api";
-import DonorContext from "../Context/DonorContext";
+import { getContext } from "../Context/ContextAPI";
 import Top from "../Components/Top";
 import SearchMenu from "../Components/SearchMenu";
 import Catalog from "../Components/Catalog";
 
 function Home() {
-  const { donorInstitutions, setDonorInstitutions } = useContext(DonorContext);
-  const [institutions, setInstitutions] = useState([]);
-  const [load, setLoad] = useState(false);
+  const {
+    institutions,
+    setInstitutions,
+    setDonorInstitutions,
+    load
+  } = getContext();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -33,14 +36,15 @@ function Home() {
         console.error(err);
         alert("Houve um erro ao buscar os dados. Por favor, recarregue a página!");
       });
-  }, [load]);
+  }, [load, setDonorInstitutions, setInstitutions]);
 
   return (
     <Container>
       <Top />
       <Content>
-        <SearchMenu setInstitutions={setInstitutions} />
-        <Catalog institutions={institutions} setLoad={setLoad} />
+        <SearchMenu />
+        <Catalog institutions={institutions} />
+        {/* <Catalog institutions={institutions} setLoad={setLoad} /> */}
       </Content>
     </Container>
   )

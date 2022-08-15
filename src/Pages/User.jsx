@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import DonorContext from "../Context/DonorContext";
+import { getContext } from "../Context/ContextAPI";
 import Top from "../Components/Top";
 import Catalog from "../Components/Catalog";
 
 function User() {
-    const { donorInstitutions, setDonorInstitutions } = useContext(DonorContext);
+    const { donorInstitutions } = getContext();
 
     return (
         <Container>

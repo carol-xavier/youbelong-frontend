@@ -43,10 +43,12 @@ function SignUp() {
         <Container>
             <img src={BackImage} alt="Background" />
             <Content>
-                <div>
-                    <p>WELCOME</p>
-                    <p>Cadastre-de abaixo</p>
-                    <form onSubmit={handleSignUp}>
+                <LeftBox>
+                    <Header>
+                    <h1>WELCOME</h1>
+                    <h2>Cadastre-de abaixo</h2>
+                    </Header>
+                    <Form onSubmit={handleSignUp}>
                         <input
                             type="text"
                             placeholder="Nome"
@@ -97,22 +99,23 @@ function SignUp() {
                                 "Criar Conta"
                             )}
                         </button>
-                    </form>
-                    <Link to={"/sign-in"}>Já tem uma conta? Clique aqui!</Link>
-                </div>
-                <div>
-                    <p> Todos os seres humanos são 99,9% geneticamente idênticos. Fazemos parte do todo, então trabalhemos pelos todo.
+                    </Form>
+                    <Link to={"/sign-in"}><p>Já tem uma conta? Clique aqui!</p></Link>
+                </LeftBox>
+                <RightBox>
+                    <h3> Todos os seres humanos são 99,9% geneticamente idênticos. Fazemos parte do todo, então trabalhemos pelos todo.
                         <br />
                         Basta se cadastrar no formulário ao lado
                         e escolher uma organização para fazer a doação.
                         <br />
                         Você pertence. YouBelong!
-                    </p>
+                    </h3>
+                    
                     <Link to={"/"}>
-                        Acha que a sua instituição pode se beneficiar fazendo
-                        parte da YouBelong? Descubra mais clicando aqui!
+                        <p>Acha que a sua instituição pode se beneficiar fazendo
+                        parte da YouBelong? Descubra mais clicando aqui!</p>
                     </Link>
-                </div>
+                </RightBox>
             </Content>
         </Container>
     )
@@ -146,7 +149,80 @@ const Content = styled.div`
     display: flex;
     justify-content: space-between;
 
-    & > div{
-        width: 50%;
+`;
+
+const Header = styled.div`
+    display: flex;
+      flex-direction: column;
+      text-align: center;
+
+    & > h1{
+      font-size: 1.5rem;
+      color: rgba(1, 41, 44, 1);
+      text-shadow: 0 4px 4px 0 #000000;
+    }
+
+    & >  h2{
+      font-size: 1.2rem;
+      color: rgba(1, 41, 44, 1);
+      text-shadow: 0 4px 4px 0 #000000;
+    }
+`;
+
+const LeftBox = styled.div`
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    p{
+        font-size: 0.7rem;
+    }
+`;
+
+const Form = styled.form`
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  input{
+    border: none;
+    border-radius: 0.4rem;
+    background-color: #C1DBBB;
+  }
+
+  button{
+    width: 7rem;
+    height: 2rem;
+    background: rgba(1, 41, 44, 1);
+    border-radius: 0.4rem;
+    border: none;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`
+
+const RightBox = styled.div`
+    width: 50%;
+
+    & > h3{
+        width: 80%;
+        margin-top: 8rem;
+        font-size: 1rem;
+        text-align: center;
+        color: rgba(1, 41, 44, 1);
+    }
+
+    p{
+        width: 80%;
+        text-align: center;
+        font-size: 0.7rem;
+        margin-top: 10rem;
     }
 `;

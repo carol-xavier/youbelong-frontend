@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { getContext } from "../Context/ContextAPI";
 import { api } from "../Assets/Api/api";
 import { GiPlantRoots, GiClothes } from "react-icons/gi";
 import { IoSchool } from "react-icons/io5";
@@ -6,7 +7,9 @@ import { MdOutlinePets, MdOutlineNightShelter, MdFoodBank } from "react-icons/md
 import { BiFootball } from "react-icons/bi";
 import { FaHome } from "react-icons/fa";
 
-function SearchMenu({ setInstitutions }) {
+function SearchMenu() {
+    const { setInstitutions } = getContext();
+
     const institutionCategories = [
         { id: 1, type: "institution", category: "Meio Ambiente", icon: <GiPlantRoots /> },
         { id: 2, type: "institution", category: "Education", icon: <IoSchool /> },
@@ -29,7 +32,7 @@ function SearchMenu({ setInstitutions }) {
             .catch((err) => console.log(err));
     }
 
-    function getInstitutionsByArticle(categoryId) { 
+    function getInstitutionsByArticle(categoryId) {
         api
             .get(
                 `/articles/${categoryId}`
@@ -41,8 +44,9 @@ function SearchMenu({ setInstitutions }) {
     function renderOptions(data) {
         return data.map((obj, index) => {
             const { id, type, category, icon } = obj;
-            return <Box key={index} onClick={() => {(type === "institution") ? (
-                getInstitutionsByCategory(id)
+            return <Box key={index} onClick={() => {
+                (type === "institution") ? (
+                    getInstitutionsByCategory(id)
                 ) : (getInstitutionsByArticle(id))
             }}>
                 <Image>{icon}</Image>

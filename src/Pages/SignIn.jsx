@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
-import DonorContext from "../Context/DonorContext";
+import { getContext } from "../Context/ContextAPI";
 import BackImage from "./../Assets/images/you-belong.jpg";
 import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import { api } from "./../Assets/Api/api";
 
 function SignIn() {
   const navigate = useNavigate();
-  const { donorInstitutions, setDonorInstitutions } = useContext(DonorContext);
+  const { setDonorInstitutions, load } = getContext();
   const [isLoading, setIsLoading] = useState(false);
   const [signInInfo, setSignInInfo] = useState({
     email: "",
@@ -28,7 +28,7 @@ function SignIn() {
         .catch(e => console.error(e));
       navigate("/");
     }
-  }, [donorInstitutions]);
+  }, [setDonorInstitutions, navigate, load]);
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -57,8 +57,10 @@ function SignIn() {
     <Container>
       <img src={BackImage} alt="Background" />
       <Content>
-        <p>WELCOME!</p>
-        <p>Se você já é um doador, <br /> faça o log in abaixo</p>
+        <section>
+          <h1>WELCOME!</h1>
+          <h2>Se você já é um doador, <br /> faça o log in abaixo</h2>
+        </section>
         <Form onSubmit={handleSignIn}>
           <input
             type="email"
@@ -89,7 +91,9 @@ function SignIn() {
           </button>
         </Form>
         <div>
-          <Link to={"/sign-in"}>Não tem uma comta? Clique aqui!</Link>
+          <Margin>
+            <Link to={"/sign-up"}>Não tem uma conta? Clique aqui!</Link>
+          </Margin>
           <Link to={"/"}>
             Acha que a sua instituição pode se beneficiar fazendo
             parte da YouBelong? Descubra mais clicando aqui!
@@ -128,22 +132,36 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
 
-    & > p{
+    & > section{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    };
+
+    h1{
       font-size: 1.5rem;
       color: rgba(1, 41, 44, 1);
       text-shadow: 0 4px 4px 0 #000000;
     }
 
+    h2{
+      font-size: 1.2rem;
+      color: rgba(1, 41, 44, 1);
+      text-shadow: 0 4px 4px 0 #000000;
+    }
+
     & > div{
-      position: absolute;
-      bottom: 10%;
-      padding: 5%;
       display: flex;
       flex-direction: column;
       text-align: center;
       font-size: 0.7rem;
     }
+`;
+
+const Margin = styled.div`
+  margin-bottom: 1rem;
 `;
 
 const Form = styled.form`
@@ -155,16 +173,20 @@ const Form = styled.form`
 
   input{
     border: none;
-    border-radius: 5px;
+    border-radius: 0.4rem;
     background-color: #C1DBBB;
   }
 
   button{
-    width: 100px;
-    height: 20px;
+    width: 7rem;
+    height: 2rem;
     background: rgba(1, 41, 44, 1);
-    border-radius: 5px;
+    border-radius: 0.4rem;
     border: none;
     color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
