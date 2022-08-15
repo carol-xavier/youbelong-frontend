@@ -12,6 +12,9 @@ function Institution() {
   const institutionInfo = institutions.find((obj) => obj.id === refId);
 
   const { name, picture, description, mission, values, video, contact } = institutionInfo;
+  let message = `Olá! Eu gostaria de marcar um horário para conhecer melhor a ${name} e saber o que vocês stão precisando`;
+  message = window.encodeURIComponent(message);
+  const link = `https://wa.me/55${contact}?text=${message}`;
 
   return (
     <Container>
@@ -31,7 +34,7 @@ function Institution() {
           <div>
             <ReactPlayer url={video} />
           </div>
-          <a href={`https://wa.me/55${contact}`}>
+          <a href={link}>
             <img src={Whatsapp} alt="Whatsapp-logo" className="wappLogo" />
             <p>Gostaria de agendar um momento para nos conhecer? Clique aqui!</p>
           </a>
