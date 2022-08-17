@@ -45,6 +45,9 @@ function Top() {
                     <button className="aboutUs">
                         Sobre nós
                     </button>
+                    <button className="newInstitution" onClick={() => navigate("/register-institution")}>
+                        Cadastrar Institutição
+                    </button>
                     {status ? (
                         <div>
                             <button className="logoff" onClick={closeApp}>
@@ -96,7 +99,7 @@ const Container = styled.section`
 
 const Menu = styled.div`
     position: relative;
-    width: 300px;
+    width: 30rem;
     position: absolute;
     right: 2%;
     bottom: 0;
@@ -128,6 +131,11 @@ const Menu = styled.div`
 
     .aboutUs{
         background-color: #A7516B;
+    }
+
+    .newInstitution{
+        background-color: #F7F2EF;
+        color: #5B5858;
     }
 
     .login{
