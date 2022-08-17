@@ -60,6 +60,8 @@ const Box = styled.div`
     & > img{
         position: absolute;
         width: 10rem;
+        max-height: 7rem;
+        object-fit: contain;
         top: 1rem;
     }
 

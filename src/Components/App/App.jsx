@@ -7,6 +7,7 @@ import User from '../../Pages/User';
 import SignIn from '../../Pages/SignIn';
 import Home from '../../Pages/Home';
 import Institution from '../../Pages/Institution';
+import RegisterInstiution from '../../Pages/RegisterInstitution';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/user-page" element={<User />} />
                     <Route path="/sign-in" element={<SignIn />} />
                     <Route path="/institution/:institutionId" element={<Institution />} />
+                    <Route path="/register-institution" element={<RegisterInstiution />} />
                 </Routes>
             </BrowserRouter>
         </Provider>

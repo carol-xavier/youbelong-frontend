@@ -32,7 +32,7 @@ function SignUp() {
                 email,
                 password,
             })
-            .then(() => navigate("/user-page"))
+            .then(() => navigate("/sign-in"))
             .catch(() => {
                 setIsLoading(false);
                 alert("Não foi possível criar a conta. Tente novamente!");
@@ -182,7 +182,7 @@ const LeftBox = styled.div`
 `;
 
 const Form = styled.form`
-    display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
