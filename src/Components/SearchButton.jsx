@@ -17,12 +17,13 @@ export default SearchButton;
 
 const Box = styled.div`
     width: 6.4rem;
-    height: 7rem;
+    height: 7.4rem;
     border-radius: 0.5rem;
     background-color: ${props => props.theme.color}; 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     text-align: center;
 
     & > h2{

@@ -25,7 +25,7 @@ function HeartButton({ id, heartsTable }) {
                 })
                 .catch((err) => {
                     console.error(err);
-                    alert("Não foi possível salvar a instituição. Por favor, tente novamente.");
+                    alert("Você fez login? Não foi possível salvar a instituição. Por favor, tente novamente ou faça login.");
                 });
         } else {
             api
@@ -55,5 +55,5 @@ export default HeartButton;
 
 const Button = styled.button`
     background: none;
-    color: #A61515;
+    color: #CA0D0D;
 `;
