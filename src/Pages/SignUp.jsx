@@ -182,7 +182,7 @@ const LeftBox = styled.div`
 `;
 
 const Form = styled.form`
-    display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
