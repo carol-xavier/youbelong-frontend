@@ -26,8 +26,9 @@ function Top() {
         const address = window.location.href;
         const host = window.location.host;
         const route = address.replace(host, "");
+        console.log(address, host, route)
 
-        if (route === "http:///") {
+        if (route === "https:///") {
             window.location.reload();
         } else {
             navigate("/");
