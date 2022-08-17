@@ -55,5 +55,5 @@ export default HeartButton;
 
 const Button = styled.button`
     background: none;
-    color: red;
-`
+    color: #A61515;
+`;

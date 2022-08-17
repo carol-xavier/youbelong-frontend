@@ -32,7 +32,7 @@ function SignUp() {
                 email,
                 password,
             })
-            .then(() => navigate("/user-page"))
+            .then(() => navigate("/sign-in"))
             .catch(() => {
                 setIsLoading(false);
                 alert("Não foi possível criar a conta. Tente novamente!");
