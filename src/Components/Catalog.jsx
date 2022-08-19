@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import styled from "styled-components";
 import { getContext } from "../Context/ContextAPI";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import HeartButton from "./HeartButton";
 
 function Catalog({ institutions }) {
@@ -16,6 +16,16 @@ function Catalog({ institutions }) {
             if (heartsTable[id] === false) heartsTable[id] = true;
         });
     }
+
+    useEffect(() => {
+        institutions.forEach((num) => heartsTable[num.id] = false);
+        if (donorInstitutions) {
+            donorInstitutions.forEach((obj) => {
+                const { id } = obj;
+                if (heartsTable[id] === false) heartsTable[id] = true;
+            });
+        }       
+    }, [load, donorInstitutions, institutions]);
 
     function renderInstitutions() {
         return institutions.map((obj, index) => {

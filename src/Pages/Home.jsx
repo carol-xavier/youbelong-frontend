@@ -45,7 +45,6 @@ function Home() {
       <Content>
         <SearchMenu />
         <Catalog institutions={institutions} />
-        {/* <Catalog institutions={institutions} setLoad={setLoad} /> */}
       </Content>
       <Footer />
     </Container>

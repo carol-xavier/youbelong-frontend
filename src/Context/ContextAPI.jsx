@@ -1,11 +1,12 @@
-import react, {createContext, useState } from "react";
+import react, { createContext, useState } from "react";
 
 const context = createContext();
 
 export function Provider(props) {
-    const [institutions, setInstitutions] = useState([]);
-    const [donorInstitutions, setDonorInstitutions] = useState([])
-    const [load, setLoad] = useState(false);
+  const [donorInstitutions, setDonorInstitutions] = useState([]);
+  const [heartStatus, setHeartStatus] = useState(false);
+  const [institutions, setInstitutions] = useState([]);
+  const [load, setLoad] = useState(false);
 
   return (
     <context.Provider
@@ -15,11 +16,13 @@ export function Provider(props) {
         donorInstitutions,
         setDonorInstitutions,
         load,
-        setLoad
+        setLoad,
+        heartStatus,
+        setHeartStatus
       }}
     >
       {props.children}
-    </context.Provider> 
+    </context.Provider>
   );
 }
 export const getContext = () => react.useContext(context);
