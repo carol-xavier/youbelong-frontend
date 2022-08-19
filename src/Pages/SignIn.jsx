@@ -1,10 +1,10 @@
-import { useState, useContext, useEffect } from "react";
-import styled from "styled-components";
+import { useState, useEffect } from "react";
 import { getContext } from "../Context/ContextAPI";
-import BackImage from "./../Assets/images/you-belong.jpg";
 import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "./../Assets/Api/api";
+import styled from "styled-components";
+import BackImage from "./../Assets/images/you-belong.jpg";
 
 function SignIn() {
   const navigate = useNavigate();

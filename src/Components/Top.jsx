@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 import { getContext } from "../Context/ContextAPI";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
@@ -26,7 +26,6 @@ function Top() {
         const address = window.location.href;
         const host = window.location.host;
         const route = address.replace(host, "");
-        console.log(address, host, route)
 
         if (route === "https:///") {
             window.location.reload();
