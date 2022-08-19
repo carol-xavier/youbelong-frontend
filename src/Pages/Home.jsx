@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Top from "../Components/Top";
 import SearchMenu from "../Components/SearchMenu";
 import Catalog from "../Components/Catalog";
+import Footer from "../Components/Footer";
 
 function Home() {
   const {
@@ -45,6 +46,7 @@ function Home() {
         <SearchMenu />
         <Catalog institutions={institutions} />
       </Content>
+      <Footer />
     </Container>
   )
 }
