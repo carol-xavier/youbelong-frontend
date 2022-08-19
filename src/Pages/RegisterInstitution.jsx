@@ -154,18 +154,18 @@ function RegisterInstiution() {
                 <p>O foco da sua instituição se encaixa melhor em qual dessas categorias? <br />
                     Escolha apenas uma.</p>
                 <section>
-                    <div required id="1" className={info.categoryId === 1 ? "categorySelected" : "category"} onClick={handleInstitutionCategory}>Meio Ambiente</div>
-                    <div required id="2" className={info.categoryId === 2 ? "categorySelected" : "category"} onClick={handleInstitutionCategory}>Educação</div>
-                    <div required id="3" className={info.categoryId === 3 ? "categorySelected" : "category"} onClick={handleInstitutionCategory}>Animais</div>
-                    <div required id="4" className={info.categoryId === 4 ? "categorySelected" : "category"} onClick={handleInstitutionCategory}>Abrigos</div>
+                    <div id="1" className={info.categoryId === 1 ? "categorySelected" : "category"} onClick={handleInstitutionCategory}>Meio Ambiente</div>
+                    <div id="2" className={info.categoryId === 2 ? "categorySelected" : "category"} onClick={handleInstitutionCategory}>Educação</div>
+                    <div id="3" className={info.categoryId === 3 ? "categorySelected" : "category"} onClick={handleInstitutionCategory}>Animais</div>
+                    <div id="4" className={info.categoryId === 4 ? "categorySelected" : "category"} onClick={handleInstitutionCategory}>Abrigos</div>
                 </section>
                 <p>Quais desses artigos a sua instituição precisa? <br />
                     Escolha quantas precisar.</p>
                 <section>
-                    <div required id="1" className={articleIds.includes(1) ? "categorySelected" : "category"} onClick={handleArticles}>Alimentos</div>
-                    <div required id="2" className={articleIds.includes(2) ? "categorySelected" : "category"} onClick={handleArticles}>Roupas</div>
-                    <div required id="3" className={articleIds.includes(3) ? "categorySelected" : "category"} onClick={handleArticles}>Brinquedos</div>
-                    <div required id="4" className={articleIds.includes(4) ? "categorySelected" : "category"} onClick={handleArticles}>Móveis e utensílios</div>
+                    <div id="1" className={articleIds.includes(1) ? "categorySelected" : "category"} onClick={handleArticles}>Alimentos</div>
+                    <div id="2" className={articleIds.includes(2) ? "categorySelected" : "category"} onClick={handleArticles}>Roupas</div>
+                    <div id="3" className={articleIds.includes(3) ? "categorySelected" : "category"} onClick={handleArticles}>Brinquedos</div>
+                    <div id="4" className={articleIds.includes(4) ? "categorySelected" : "category"} onClick={handleArticles}>Móveis e utensílios</div>
                 </section>
                 <article>
                     <button>
