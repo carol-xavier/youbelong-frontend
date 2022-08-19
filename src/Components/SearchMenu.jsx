@@ -1,12 +1,12 @@
-import styled, { ThemeProvider } from "styled-components";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { getContext } from "../Context/ContextAPI";
 import { api } from "../Assets/Api/api";
 import { GiPlantRoots, GiClothes } from "react-icons/gi";
 import { IoSchool } from "react-icons/io5";
 import { MdOutlinePets, MdOutlineNightShelter, MdFoodBank } from "react-icons/md";
-import { BiBluetooth, BiFootball } from "react-icons/bi";
+import { BiFootball } from "react-icons/bi";
 import { FaHome } from "react-icons/fa";
+import styled from "styled-components";
 import SearchButton from "./SearchButton";
 
 function SearchMenu() {

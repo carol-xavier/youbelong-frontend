@@ -25,7 +25,7 @@ function Catalog({ institutions }) {
                 if (heartsTable[id] === false) heartsTable[id] = true;
             });
         }       
-    }, [load])
+    }, [load, donorInstitutions, institutions]);
 
     function renderInstitutions() {
         return institutions.map((obj, index) => {
