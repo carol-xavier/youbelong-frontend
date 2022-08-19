@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Whatsapp from "../Assets/images/whatsapp-logo.png"
 import ReactPlayer from "react-player";
 import Top from "../Components/Top";
+import Footer from "../Components/Footer";
 
 function Institution() {
   const { institutions } = getContext();
@@ -40,6 +41,7 @@ function Institution() {
           </a>
         </Test>
       </Content>
+      <Footer />
     </Container>
   )
 };

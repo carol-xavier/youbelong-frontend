@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import styled from "styled-components";
 import { api } from "../Assets/Api/api";
 import { getContext } from "../Context/ContextAPI";
+import styled from "styled-components";
 import Top from "../Components/Top";
 import SearchMenu from "../Components/SearchMenu";
 import Catalog from "../Components/Catalog";
+import Footer from "../Components/Footer";
 
 function Home() {
   const {
@@ -46,6 +47,7 @@ function Home() {
         <Catalog institutions={institutions} />
         {/* <Catalog institutions={institutions} setLoad={setLoad} /> */}
       </Content>
+      <Footer />
     </Container>
   )
 }

@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 import { getContext } from "../Context/ContextAPI";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
@@ -51,7 +51,7 @@ function Top() {
                     </button>
                     {status ? (
                         <div>
-                            <button className="logoff" onClick={closeApp}>
+                            <button className="authentication" onClick={closeApp}>
                                 SAIR
                             </button>
                             <CgProfile
@@ -59,7 +59,7 @@ function Top() {
                                 onClick={() => navigate("/user-page")} />
                         </div>
                     ) : (
-                        <button className="login" onClick={() => navigate("/sign-in")}>
+                        <button className="authentication" onClick={() => navigate("/sign-in")}>
                             Log In
                         </button>
                     )}
@@ -139,18 +139,14 @@ const Menu = styled.div`
         color: #5B5858;
     }
 
-    .login{
-        background-color: #1E97D9;
-    }
-
-    .logoff{
-        background-color: #1E97D9;
+    .authentication{
+        background-color: #79BFD6;
     }
 
     .donorProfile{
         margin-left: 0.3rem;
         margin-bottom: 0.2rem;
-        color: #1E97D9;
+        color: #79BFD6;
         font-size: 2.2rem;
     }
 `;
