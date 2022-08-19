@@ -2,13 +2,15 @@ import styled from "styled-components";
 import { getContext } from "../Context/ContextAPI";
 import { api } from "./../Assets/Api/api";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
-import { useState } from "react";
 
 function HeartButton({ id, heartsTable }) {
-    const {setLoad} = getContext();
-    const [heartStatus, setHeartStatus] = useState(false);
+    const { 
+        setLoad, 
+        setHeartStatus, 
+        donorInstitutions, 
+        setDonorInstitutions } = getContext();
 
-    function saveInstitution(institutionId) {
+    function manageInstitution(institutionId) {
         const config = {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -35,6 +37,7 @@ function HeartButton({ id, heartsTable }) {
                     alert("Insituição removida da sua lista com sucesso!");
                     setLoad(load => !load);
                     setHeartStatus(heartStatus => !heartStatus);
+                    setDonorInstitutions(donorInstitutions.filter(obj => obj.id !== institutionId));
                 })
                 .catch((err) => {
                     console.error(err);
@@ -44,9 +47,9 @@ function HeartButton({ id, heartsTable }) {
     }
 
     return (
-        <Button onClick={() => saveInstitution(id)}>
-            {heartsTable[id] === true ? 
-            <BsHeartFill /> : <BsHeart />}
+        <Button onClick={() => manageInstitution(id)}>
+            {heartsTable[id] === true ?
+                <BsHeartFill /> : <BsHeart />}
         </Button>
     )
 }
